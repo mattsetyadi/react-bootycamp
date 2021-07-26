@@ -2,11 +2,12 @@ import { Button, Col, Form, Input, Row, Select, Skeleton } from 'antd';
 
 import { CCardWrap } from '../../../Assets/Components/CCard';
 import FlipMove from 'react-flip-move';
+import ModalPostComponent from './ModalPostComponent';
 import React from 'react';
 import moment from 'moment';
 
 const PostComponent = (props) => {
-  const { posts, loading, addPost, compLoading, deletePost } = props;
+  const { posts, loading, addPost, compLoading } = props;
   const [form] = Form.useForm();
 
   const onFinish = (value) => {
@@ -24,6 +25,7 @@ const PostComponent = (props) => {
     <div className="postSection">
       <Row>
         <Col
+          className="colAddPost"
           style={{
             marginTop: 20,
             alignItems: 'center',
@@ -123,10 +125,11 @@ const PostComponent = (props) => {
                           ))}
                       </ul>
                     </small>
-                    <Button onClick={() => deletePost(_id)}>Delete Post</Button>
+                    {/* <Button onClick={() => deletePost(_id)}>Delete Post</Button> */}
                     <div
                       style={{ borderTop: '1px solid black', marginTop: 6 }}
                     ></div>
+                    <ModalPostComponent postId={_id} {...props} />
                   </Row>
                 );
               })}

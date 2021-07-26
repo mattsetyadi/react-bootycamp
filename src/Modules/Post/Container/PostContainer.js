@@ -8,6 +8,7 @@ const PostContainer = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [compLoading, setCompLoading] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const url = process.env.REACT_APP_POST_API;
   const getPosts = async () => {
     setLoading(true);
@@ -41,8 +42,10 @@ const PostContainer = () => {
   };
 
   const deletePost = (id) => {
+    setDeleting(true);
     try {
       axios.delete(`${url}/posts/${id}`);
+
       //   const newPosts = Object.assign({}, posts);
       //   console.log('newPosts', newPosts);
       let afterDeletePost;
@@ -62,6 +65,7 @@ const PostContainer = () => {
       });
 
       setPosts(filteredPost);
+      setDeleting(false);
       console.log('filtered posts', filteredPost);
       console.log('after delete post', afterDeletePost);
       console.log('idPayload', id);
@@ -69,6 +73,7 @@ const PostContainer = () => {
       toast.info('Post berhasil dihapus');
     } catch (error) {
       console.log(error);
+      setDeleting(false);
     }
   };
 
@@ -81,6 +86,7 @@ const PostContainer = () => {
       addPost={addPost}
       compLoading={compLoading}
       deletePost={deletePost}
+      deleting={deleting}
     />
   );
 };
