@@ -14,7 +14,15 @@ const FetchUserComponent = (props) => {
     );
   });
 
-  return <>{loading === true ? <h1>Loading...</h1> : <Row>{usersMap}</Row>}</>;
+  return (
+    <>
+      {loading === true ? (
+        <h1>Loading...</h1>
+      ) : (
+        <Row style={{ justifyContent: 'center' }}>{usersMap}</Row>
+      )}
+    </>
+  );
 };
 
 export default FetchUserComponent;

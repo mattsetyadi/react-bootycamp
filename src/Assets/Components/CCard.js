@@ -10,7 +10,7 @@ export const CCard = (props) => {
   return (
     <Card
       hoverable
-      style={{ width: 200 }}
+      style={{ width: 380 }}
       cover={<img alt={fullName} src={user.avatar} />}
     >
       <p>Name : {fullName}</p>

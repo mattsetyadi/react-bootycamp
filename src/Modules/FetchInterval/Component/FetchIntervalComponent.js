@@ -25,7 +25,7 @@ const FetchIntervalComponent = (props) => {
   });
 
   return (
-    <div style={{ maxWidth: '1100px' }}>
+    <div style={{ maxWidth: '1000px' }}>
       <Row style={{ justifyContent: 'center' }}>
         <Col style={{ margin: 12 }}>
           {loading === true || user === '' ? (
