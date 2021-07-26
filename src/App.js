@@ -5,6 +5,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import FetchIntervalContainer from './Modules/FetchInterval/Container/FetchIntervalContainer';
 import FetchUserContainer from './Modules/FetchUser/Container/FetchUserContainer';
+import Navbar from './Assets/Components/Navbar';
 import PostContainer from './Modules/Post/Container/PostContainer';
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
@@ -14,6 +15,7 @@ const App = () => {
     <>
       <Router>
         <ToastContainer />
+        <Navbar />
         <Switch>
           <Route exact path="/" component={FetchUserContainer} />
           <Route exact path="/autofetch" component={FetchIntervalContainer} />
